@@ -4,22 +4,13 @@
 #include <math.h>
 int convert(char *);
 int convert(char * str){
-	int *len=(int*)malloc(sizeof(int));
-	*len=strlen(str);
-	int sum_arr[*len];
-	register int n=*len;
-	free(len);
+	register int n=strlen(str);
 	register int pos_var=0;
+	int sum=0;
 	while(*(str+pos_var)!='\0'){
-		*(sum_arr+pos_var)=(((int)*(str+pos_var))-48)*pow(10,n-1);
+		sum+=(((int)*(str+pos_var))-48)*pow(10,n-1); //krabby patty formula
 		pos_var++;
 		n--;
-	}
-	int sum=0;
-	pos_var=0;
-	while(*(str+pos_var)!='\0'){
-		sum+=*(sum_arr+pos_var);
-		pos_var++;
 	}
 	return sum;
 }
